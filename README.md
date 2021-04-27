@@ -1,2 +1,2 @@
 # rockpaperscissors
-rockpaperscissors project using js
+The purpose of this project is to code a simple game of rockpaperscissors using JS.
