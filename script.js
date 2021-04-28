@@ -2,6 +2,7 @@
 let computerScore =0;
 let humanScore =0;
 const myArray = ["rock", "paper", "scissors"];
+let n = prompt("How many rounds would you like to play?");
 
 //Computer randomly chooses rock, paper or scissors using random number generator
 function computerPlay() {
@@ -19,7 +20,7 @@ function humanPlay() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
         console.log("You win this round! " + playerSelection + " beats " + computerSelection)
-        return("You win")
+        return("You win!")
         
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         console.log("You win this round! " + playerSelection + " beats " + computerSelection)
@@ -62,22 +63,29 @@ function computeScore(string1){
 //This function decides the winner
 function decideWinner(humanScore, computerScore){
     if (humanScore > computerScore){
-        console.log("After 5 rounds, YOU WIN!")
+        console.log("After " + n + " rounds, YOU WIN!")
     } else if (humanScore == computerScore){
-        console.log("After 5 rounds , ITS A TIE GAME!")
+        console.log("After " + n + " rounds , ITS A TIE GAME!")
     } else {
-        console.log("After 5 rounds, YOU LOSE!")
+        console.log("After " + n + " rounds, YOU LOSE!")
     }
 }
 
 //This section of the code runs the game 5 times and decides the overall winner
-let i;
-for (i=0; i<5; i++){
-    game();
-    if (i==4){
-        decideWinner(humanScore, computerScore);
+function playGame(rounds){
+    let i;
+    for (i=0; i<n; i++){
+        game();
+        if (i==n - 1){
+            decideWinner(humanScore, computerScore);
+            humanScore =0;
+            computerScore=0;
+        }
     }
 }
+
+playGame(n);
+
 
 
 
