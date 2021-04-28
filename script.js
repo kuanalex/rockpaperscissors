@@ -1,22 +1,11 @@
 //Declare variables
 let computerScore =0;
 let humanScore =0;
+const myArray = ["rock", "paper", "scissors"];
 
 //Computer randomly chooses rock, paper or scissors using random number generator
 function computerPlay() {
-    let computerSelection = Math.floor(Math.random() * 3);
-    let computerResult;
-
-    if (computerSelection === 0) {
-        computerResult = 'rock'
-    } else if (computerSelection === 1) {
-        computerResult = 'paper'
-    } else {
-        computerResult = 'scissors'
-    }
-    console.log("The computer has picked: " + computerResult);
-
-    return computerResult;
+  return myArray[~~(Math.random() * myArray.length)];
 }
 
 //Human chooses rock, paper or scissors by entering into a text box
@@ -24,7 +13,7 @@ function humanPlay() {
     let humanSelection = prompt("Choose rock, paper or scissors");
         console.log("The human has picked: " + humanSelection);
         return humanSelection.toLowerCase();
-}
+    }   
 
 //This function computes the winner and stores the result
 function playRound(playerSelection, computerSelection) {
