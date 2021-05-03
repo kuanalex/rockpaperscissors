@@ -1,7 +1,7 @@
 //Declare variables
 let computerScore =0;
 let humanScore =0;
-const myArray = ["rock", "paper", "scissors"];
+const myArray = ['rock', 'paper', 'scissors'];
 let n = prompt("How many rounds would you like to play?");
 
 //Computer randomly chooses rock, paper or scissors using random number generator
@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection) {
         return("You win")
 
     } else if (playerSelection === computerSelection) {
-
+        console.log("You both pick " + playerSelection + " so the game is a tie!")
         return("The game is a tie!")
         
     } else {
