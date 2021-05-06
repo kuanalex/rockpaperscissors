@@ -10,7 +10,7 @@ const scissors = document.getElementById("scissors");
 
 rocks.addEventListener('click', () => pick('rock'));
 papers.addEventListener('click', () => pick('paper'));
-scissors.addEventListener('click', () => pick('scissor'));
+scissors.addEventListener('click', () => pick('scissors'));
 
 
 // let n = prompt("How many rounds would you like to play?");
