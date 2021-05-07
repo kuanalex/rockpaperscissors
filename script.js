@@ -2,10 +2,10 @@
 let computerScore = 0;
 let humanScore = 0;
 let playChoice = '';
-document.getElementById("para").innerHTML = "Rock, Paper, or Scissors!";
+document.getElementById("para").innerHTML = "Ft5, Rock Paper Scissors!";
 document.getElementById("humanScoreBanner").innerHTML = "Human Score";
 document.getElementById("humanScorePoints").innerHTML = "0";
-document.getElementById("robotScoreBanner").innerHTML = "Robot Score";
+document.getElementById("robotScoreBanner").innerHTML = "AI Score";
 document.getElementById("robotScorePoints").innerHTML = "0";
 
 const rocks = document.getElementById("rock");
@@ -17,9 +17,6 @@ papers.addEventListener('click', () => pick('paper'));
 scissors.addEventListener('click', () => pick('scissors'));
 
 const myArray = ['rock', 'paper', 'scissors'];
-
-
-// let n = prompt("How many rounds would you like to play?");
 
 // Run humanPlay() by clicking the rock, paper, or scissors buttons
 function pick(choice) {
@@ -61,23 +58,23 @@ function humanPlay(choice) {
 //Store values into array and loop through it
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You win!"
+        document.getElementById("roundConclusion").innerHTML = "AI picked " + computerSelection + "! You win!"
         return ("win")
 
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You win!"
+        document.getElementById("roundConclusion").innerHTML = "AI picked " + computerSelection + "! You win!"
         return ("win")
 
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You win!"
+        document.getElementById("roundConclusion").innerHTML = "AI picked " + computerSelection + "! You win!"
         return ("win")
 
     } else if (playerSelection === computerSelection) {
-        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! Tie game!"
+        document.getElementById("roundConclusion").innerHTML = "AI picked " + computerSelection + "! Tie game!"
         return ("tie")
 
     } else {
-        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You lose!"
+        document.getElementById("roundConclusion").innerHTML = "AI picked " + computerSelection + "! You lose!"
         return ("lose")
     }
 }
@@ -94,8 +91,17 @@ function computeScore(string1) {
 
     if (humanScore === 5){
         document.getElementById("roundConclusion").innerHTML = "The winner by unanimous decision is the Human!";
+        humanScore = 0;
+        computerScore = 0;
+        document.getElementById("humanScorePoints").innerHTML = "0";
+        document.getElementById("robotScorePoints").innerHTML = "0";
+
     } else if (computerScore === 5) {
         document.getElementById("roundConclusion").innerHTML = "The winner by unanimous decision is the AI!";
+        humanScore = 0;
+        computerScore = 0;
+        document.getElementById("humanScorePoints").innerHTML = "0";
+        document.getElementById("robotScorePoints").innerHTML = "0";
     }
 }
 
@@ -109,18 +115,3 @@ function decideWinner(humanScore, computerScore) {
         console.log("After " + n + " rounds, YOU LOSE!")
     }
 }
-
-// This section of the code runs the game 'n' times and decides the overall winner
-// function playGame(rounds) {
-//     let i;
-//     for (i = 0; i < n; i++) {
-//         pick();
-//         if (i == n - 1) {
-//             decideWinner(humanScore, computerScore);
-//             humanScore = 0;
-//             computerScore = 0;
-//         }
-//     }
-// }
-
-// playGame();
