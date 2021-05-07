@@ -14,10 +14,26 @@ header {
     background-color: #1d3557;
 }
 
+#humanScoreBanner {
+    color: #e63946;
+}
+
+#humanScorePoints {
+    color: #e63946;
+}
+
+#robotScoreBanner {
+    color: #e63946;
+}
+
+#robotScorePoints {
+    color: #e63946;
+}
+
 p {
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
-    color: #f1faee;
+    color: black;
 }
 
 
@@ -60,4 +76,9 @@ p {
 
 .scissors {
     background-image: url("scissors.png")
+}
+
+#roundConclusion {
+    padding: 50px;
+    
 }

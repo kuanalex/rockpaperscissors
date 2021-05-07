@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 
 <head>
@@ -16,8 +12,26 @@
 
 <body>
 
-    <header >
+    <header>
+        <div>
+            <div>
+                <p id="humanScoreBanner"></p>
+            </div>
+            <div>
+                <p id="humanScorePoints"></p>
+            </div>
+        </div>
+
         <p id="para"></p>
+
+        <div>
+            <div>
+                <p id="robotScoreBanner"></p>
+            </div>
+            <div>
+                <p id="robotScorePoints"></p>
+            </div>
+        </div>
     </header>
 
     <div class="container">
@@ -34,6 +48,12 @@
 
         </div>
     </div>
+
+    <footer>
+        <div>
+            <p id="roundConclusion"></p>
+        </div>
+    </footer>
 
     <script src="script.js" async defer></script>
 </body>

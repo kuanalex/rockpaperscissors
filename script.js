@@ -2,7 +2,11 @@
 let computerScore = 0;
 let humanScore = 0;
 let playChoice = '';
-const myArray = ['rock', 'paper', 'scissors'];
+document.getElementById("para").innerHTML = "Rock, Paper, or Scissors!";
+document.getElementById("humanScoreBanner").innerHTML = "Human Score";
+document.getElementById("humanScorePoints").innerHTML = "0";
+document.getElementById("robotScoreBanner").innerHTML = "Robot Score";
+document.getElementById("robotScorePoints").innerHTML = "0";
 
 const rocks = document.getElementById("rock");
 const papers = document.getElementById("paper");
@@ -12,21 +16,42 @@ rocks.addEventListener('click', () => pick('rock'));
 papers.addEventListener('click', () => pick('paper'));
 scissors.addEventListener('click', () => pick('scissors'));
 
+const myArray = ['rock', 'paper', 'scissors'];
+
 
 // let n = prompt("How many rounds would you like to play?");
+
+// Run humanPlay() by clicking the rock, paper, or scissors buttons
+function pick(choice) {
+    switch (choice) {
+        case 'rock': {
+            humanPlay(choice);
+            break;
+        }
+        case 'paper': {
+            humanPlay(choice);
+            break;
+        }
+        case 'scissors': {
+            humanPlay(choice);
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+
+    document.getElementById("para").innerHTML = "You picked " + choice + "!";
+}
 
 //Computer randomly chooses rock, paper or scissors using random number generator
 function computerPlay() {
     return myArray[~~(Math.random() * myArray.length)];
 }
 
-//Human chooses rock, paper or scissors by entering into a text box
-function humanPlay() {
-    // write code to select rock paper or scissors based on the button 
-    document.getElementById("para").innerHTML = "Choose Rock, Paper, or Scissors!";
-
-
-    const playerSelection = playChoice;
+//Human chooses rock, paper or scissors selecting one of the 3 buttons on the screen
+function humanPlay(choice) {
+    const playerSelection = choice;
     const computerSelection = computerPlay();
     let result = playRound(playerSelection, computerSelection);
     computeScore(result);
@@ -36,35 +61,26 @@ function humanPlay() {
 //Store values into array and loop through it
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        console.log("You win this round! " + playerSelection + " beats " + computerSelection)
-        return ("You win!")
+        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You win!"
+        return ("win")
 
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        console.log("You win this round! " + playerSelection + " beats " + computerSelection)
-        return ("You win")
+        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You win!"
+        return ("win")
 
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log("You win this round! " + playerSelection + " beats " + computerSelection)
-        return ("You win")
+        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You win!"
+        return ("win")
 
     } else if (playerSelection === computerSelection) {
-        console.log("You both pick " + playerSelection + " so the game is a tie!")
-        return ("The game is a tie!")
+        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! Tie game!"
+        return ("tie")
 
     } else {
-        console.log("You lose this round! " + computerSelection + " beats " + playerSelection)
-        return ("You lose")
+        document.getElementById("roundConclusion").innerHTML = "Computer picked " + computerSelection + "! You lose!"
+        return ("lose")
     }
 }
-
-//This function runs the game
-// function game() {
-//     const playerSelection = humanPlay();
-//     const computerSelection = computerPlay();
-
-//     result = playRound(playerSelection, computerSelection)
-//     computeScore(result);
-// }
 
 //This function computes the score
 function computeScore(string1) {
@@ -73,8 +89,14 @@ function computeScore(string1) {
     } else if (string1.includes("lose")) {
         computerScore++;
     }
-    console.log("Human score is: " + humanScore);
-    console.log("Computer score is: " + computerScore);
+    document.getElementById("humanScorePoints").innerHTML = humanScore;
+    document.getElementById("robotScorePoints").innerHTML = computerScore;
+
+    if (humanScore === 5){
+        document.getElementById("roundConclusion").innerHTML = "The winner by unanimous decision is the Human!";
+    } else if (computerScore === 5) {
+        document.getElementById("roundConclusion").innerHTML = "The winner by unanimous decision is the AI!";
+    }
 }
 
 //This function decides the winner
@@ -88,11 +110,11 @@ function decideWinner(humanScore, computerScore) {
     }
 }
 
-//This section of the code runs the game 5 times and decides the overall winner
+// This section of the code runs the game 'n' times and decides the overall winner
 // function playGame(rounds) {
 //     let i;
 //     for (i = 0; i < n; i++) {
-//         game();
+//         pick();
 //         if (i == n - 1) {
 //             decideWinner(humanScore, computerScore);
 //             humanScore = 0;
@@ -101,37 +123,4 @@ function decideWinner(humanScore, computerScore) {
 //     }
 // }
 
-// game();
-
-
-function pick(choice) {
-    switch (choice) {
-        case 'rock': {
-            humanPlay(choice);
-            break;
-        }
-        case 'paper': {
-            humanPlay(choice);
-            break;
-            
-        }
-        case 'scissors': {
-            humanPlay(choice);
-            break;
-            
-        }
-        default:{
-            break;
-        }
-
-    }
-
-    document.getElementById("para").innerHTML = "You picked " + choice + "!";
-    console.log(choice);
-}
-
-
-
-
-
-    
+// playGame();
